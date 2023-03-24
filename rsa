@@ -1,19 +1,5 @@
 #!/usr/bin/python3
-
-# library to get arguments
 import sys
-
-def factorize(number):
-    if number % 2 == 0:
-        return "{}={}*{}".format(number, number // 2, 2)
-
-    i = 3
-    while i <= number // 2:
-        if number % i == 0:
-            return "{}={}*{}".format(number, number // i, i)
-        i += 2
-
-    return "{}={}*{}".format(number, number, 1)
 
 def fc():
     try:
@@ -21,9 +7,18 @@ def fc():
         with open(revfile) as f:
             for revnumber in f:
                 revnumber = int(revnumber)
-                print(factorize(revnumber))
-    except IndexError:
+                if revnumber % 2 == 0:
+                        print("{}={}*{}".format(revnumber, revnumber // 2, 2))
+                        continue
+                i = 3
+                while i < revnumber // 2:
+                    if revnumber % i == 0:
+                        print("{}={}*{}".format(revnumber, revnumber // i, i))
+                        break
+                    i = i + 2
+                if i == (revnumber // 2) + 1:
+                    print("{}={}*{}".format(revnumber, revnumber, 1))
+    except (IndexError):
         pass
 
-# start
 fc()
