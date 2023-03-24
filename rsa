@@ -1,0 +1,29 @@
+#!/usr/bin/python3
+
+# library to get arguments
+import sys
+
+def factorize(number):
+    if number % 2 == 0:
+        return "{}={}*{}".format(number, number // 2, 2)
+
+    i = 3
+    while i <= number // 2:
+        if number % i == 0:
+            return "{}={}*{}".format(number, number // i, i)
+        i += 2
+
+    return "{}={}*{}".format(number, number, 1)
+
+def fc():
+    try:
+        revfile = sys.argv[1]
+        with open(revfile) as f:
+            for revnumber in f:
+                revnumber = int(revnumber)
+                print(factorize(revnumber))
+    except IndexError:
+        pass
+
+# start
+fc()
