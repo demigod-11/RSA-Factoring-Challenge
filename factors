@@ -2,7 +2,7 @@
 """
 Module that factorize numbers
 """
-from sys import argv
+import sys
 
 
 def factorize(value):
