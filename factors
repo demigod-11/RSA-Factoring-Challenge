@@ -9,12 +9,11 @@ def factorize(n):
     return factors
 
 if len(sys.argv) != 2:
-    print("Usage: factors <file>")
-    exit(1)
+    exit()
 
 with open(sys.argv[1], "r") as f:
     for line in f:
         n = int(line.strip())
         factor_pairs = factorize(n)
         for p, q in factor_pairs:
-            print(f"{n}={p}*{q}")
+            print("{:.0f}={:.0f}*{:.0f}".format(n, p, q))
